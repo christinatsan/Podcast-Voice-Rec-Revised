@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> IRB Consent Form </title>
+         <!-- Bootstrap -->
+         <meta charset="utf-8">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+         
+         <!-- Added styling -->
+         <link href='http://fonts.googleapis.com/css?family=Lato:400,700,bold' rel='stylesheet' type='text/css'>
+         <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+         
+    </head>
+    <body>
+        <!-- start of consent form -->
+        <div style="width: 70%; margin:auto; border: 1px solid black; padding: 20px;">
+            <h1 align="middle"> Consent Form </h1>
+            <br>
+
+            We are asking you to participate in a research study titled “Voice-based content recommendation system”.
+            We will describe this study to you and answer any of your questions.
+            This study is being led by Longqi Yang, Department of Computer Science.
+            <b>The Faculty Advisor for this study is</b> Deborah Estrin, Department of Computer Science.
+
+            <br>
+            <br>
+
+            <b>What the study is about</b><br>
+            The purpose of this research is to identify challenges in building voice-based content recommender systems,
+            where the contents are mainly delivered through the audio channel.
+            <br>
+            <br>
+
+            <b>What we will ask you to do</b><br>
+            We will ask you to:
+            <ol class="decimal">
+                <li>Browse or listen to the news and podcast suggested by a mainstream recommender through either visual or audio channel (less than 5 min).</li>
+                <li>Select a piece of content from the list of recommendations to consume in detail (5 min).</li>
+                <li>Indicate your preference towards the selected item and the recommendations (less than 1 min).</li>
+                <li>Provide qualitative feedback and comments (less than 5 min).</li>
+            </ol>
+
+            <b>Risks and discomforts</b><br>
+            We do not anticipate any risks from participating in this research.
+            <br>
+            <br>
+
+            <b>Benefits</b><br>
+            There are no direct benefits to you.<br>
+            <br>
+            The outcome of this study will inform better design and development of future voice-based content recommendation systems, and it will contribute to the fields of personalization, recommendation system and Human-computer Interaction.
+            <br>
+            <br>
+
+            <b>Compensation for participation</b><br>
+            You will receive compensation of $ XXX dollars for your time at the end of this study.
+            <br>
+            <br>
+
+            <b>Privacy/Confidentiality/Data Security</b><br>
+            We will not collect any identifying information during the study, and the data collected is de-identified. The signed consent forms will be kept separate from the survey data and that the two will not be connected. <br>
+            <br>
+            We anticipate that your participation in this survey presents no greater risk than everyday use of the Internet.
+            <br>
+            <br>
+
+            <b>Data Sharing</b><br>
+            De-identified data from this study may be shared with the research community at large to advance science. We will remove or code any personal information that could identify you before files are shared with other researchers to ensure that, by current scientific standards and known methods, no one will be able to identify you from the information we share. Despite these measures, we cannot guarantee anonymity of your personal data.
+            <br>
+            <br>
+
+            <b>Taking part is voluntary</b><br>
+            Your involvement is voluntary, you may refuse to participate before the study begins, discontinue at any time, or skip any questions/procedures that may make you feel uncomfortable, with no penalty to you, and no effect on the compensation earned before withdrawing, or your academic standing, record, or relationship with the university or other organization or service that may be involved with the research.
+            <br>
+            <br>
+
+            <b>If you have questions</b><br>
+            The main researcher conducting this study is Longqi Yang, a graduate student at Cornell University. Please ask any questions you have now. If you have questions later, you may contact Longqi Yang at ylongqi@cs.cornell.edu or at 607-379-5596.  If you have any questions or concerns regarding your rights as a subject in this study, you may contact the Institutional Review Board (IRB) for Human Participants at 607-255-6182 or access their website at http://www.irb.cornell.edu. You may also report your concerns or complaints anonymously through Ethicspoint online at www.hotline.cornell.edu or by calling toll free at 1-866-293-3077. Ethicspoint is an independent organization that serves as a liaison between the University and the person bringing the complaint so that anonymity can be ensured.
+            <br>
+        </div>
+        <!-- End of Form -->
+
+        <br>
+        <br>
+        <br>
+
+        <!-- Control Buttons -->
+        <div style="width: 70%; margin:auto; border: 1px solid black; padding: 20px;">
+            <b>Statement of Consent</b><br>
+            I have read the above information, and have received answers to any questions I asked. I consent to take part in the study.
+            <br>
+            <br>
+            <button type="button" class="page_btn" onclick="window.location='/logout'" style="float:left;"> Cancel </button>
+            <button type="button" class="page_btn" onclick="window.location='/_dispatch'" style="float:right;"> Accept and Continue </button>
+            <br>
+        </div>
+
+    </body>

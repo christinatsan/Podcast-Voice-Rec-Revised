@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+  <speak version="1.1" 
+         xmlns="http://www.w3.org/2001/10/synthesis"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://www.w3.org/2001/10/synthesis http://www.w3.org/TR/speech-synthesis11/synthesis.xsd"
+         xml:lang="en-US">
+<break time='3s'/> No. 1<break time='1s'/>Oprah’s SuperSoul Conversations by Oprah
+<break time='3s'/> No. 2<break time='1s'/>Dan Carlin's Hardcore History by Dan Carlin
+<break time='3s'/> No. 3<break time='1s'/>Majority 54 by Crooked Media
+<break time='3s'/> No. 4<break time='1s'/>Dirty John by L.A. Times | Wondery
+<break time='3s'/> No. 5<break time='1s'/>This American Life by This American Life
+<break time='3s'/> No. 6<break time='1s'/>Kickass News by Mathis Entertainment, Inc.
+<break time='3s'/> No. 7<break time='1s'/>The Joe Rogan Experience by Joe Rogan
+<break time='3s'/> No. 8<break time='1s'/>TED Talks Daily by TED
+<break time='3s'/> No. 9<break time='1s'/>Young Charlie by Hollywood and Crime by Wondery
+<break time='3s'/> No. 10<break time='1s'/>The Daily by The New York Times
+</speak>

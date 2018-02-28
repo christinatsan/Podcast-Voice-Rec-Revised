@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Voice System </title>
+              <!-- Bootstrap -->
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1">
+              <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+              <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+              
+              <!-- Added styling -->
+            <link href='http://fonts.googleapis.com/css?family=Lato:400,700,bold' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+            
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+ -->
+ <script integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+ 
+    </head>
+
+    <body>
+        <div style="width:70%;margin:auto;">
+            <br>
+
+            <!-- Instruction -->
+            <p> Please listen to a stream of podcasts recommended for you and type in the <b>Index number</b> of the ONE that <b> you like most</b> and then <b> submit </b>.
+            By submitting, you will be committing to listening for a <b> full 5 minutes </b>.
+            The stream of podcasts is long, the audio will continuously read titles of new podcast.
+            </p>
+            <br>
+
+            <!-- Status and Control -->
+            <div style="border:1px solid black; width: 50%; margin: auto; padding: 5px;" align="center">
+                <p id = "status-text">
+                    Press button to start playing
+                </p>
+            </div>
+            <br>
+
+            <div align = "center">
+                <button type="button" class="page_btn" onclick="playaudio()" style="margin-right:20px;">Play</button>
+                <button type="button" class="page_btn" onclick="pauseaudio()" style="margin-left:20px;">Pause</button>
+            </div>
+
+            <audio id="player">
+                <source src= {{ url_for('static', filename=audio_file) }} type="audio/mp3">
+                Your browser does not support audio files
+            </audio>
+
+
+           
+            <script>
+                // Play, Pause and End Logic
+                var player = document.getElementById("player");
+
+                function playaudio() {
+                    player.play();
+                    document.getElementById("status-text").innerHTML = "Now Playing ...";
+                }
+                function pauseaudio() {
+                    player.pause();
+                    document.getElementById("status-text").innerHTML = "Paused ...";
+                }
+
+                player.addEventListener("ended", function(){
+                    document.getElementById("status-text").innerHTML = "Ended...";
+                });
+
+                //Selection Logic
+                function submit() {
+                  if(validateInput()) {
+                    $("#voiceModal").modal('toggle');
+                   // window.location.href = '/player/' + document.getElementById("podcast-id").value;
+                  }
+                }
+
+                function validateInput() {
+                    var id = document.getElementById("podcast-id").value.trim();
+                    if(id == "" || isNaN(id) || id == "0") {
+                      alert("You must select a podcast to continue. \nPlease input an index number (starting from 1) in text box provided");
+                      return false;
+                    } else {
+                        return true;
+                    }
+                }
+
+                function send() {
+                    var num = parseInt (document.getElementById("podcast-id").value) - 1
+                    window.location.href = '/player/' + num;
+                  }
+                
+            </script>
+
+            <br>
+            <br>
+
+            <!-- Selection Section -->
+            Index number of your selected Podcast<br>
+            <br>
+            <div align = "center">
+                <input type="text" class="input-field" id="podcast-id" >
+                <button type="button" class="page_btn" id = "sub_btn" onclick= "submit()" data-pod = "{{ podcast_options }}" data-target="#voiceModal">Submit</button>
+            </div>
+
+
+            <div id="voiceModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                  
+                      <!-- Modal content-->
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                          <h4 class="modal-title">Podcast Number Selection Confirmation</h4>
+                        </div>
+                        <div class="modal-body">
+                          <p class="modalText">You have chosen to listen to </p>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default mod-btn" data-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary mod-btn" onclick="send()">Yes</button>
+                        </div>
+                      </div>
+                  
+                    </div>
+                  </div>
+        </div>
+            </div>
+
+            <script>
+
+            var _value   
+            var _podcast_options   
+            $(document).ready(function () {
+                console.log("Loaded")
+                /*$('.sub-btn').on('click',function(e){
+                            e.preventDefault();
+                            //$("#voiceModal").modal('toggle');
+                });*/
+
+                $('#voiceModal').on('show.bs.modal', function (event) { // id of the modal with event
+                  var button = $(event.relatedTarget) // Button that triggered the modal
+                  var podId = parseInt(document.getElementById("podcast-id").value)  // Extract info from data-* attributes
+                  var pod = button.data('pod');
+                  console.log($('podcast_options'))//[0]['podcasts'][0]["title"])
+                  console.log(pod)
+                  //var podname = pod[podId]['podcasts'][0]["title"]
+                 // var title = 'Podcast Selection Confirmation  of Podcast ' + (podId+1)
+                  var content = 'Are you sure want to listen to selection ' + podId + '?'
+                  
+                  // Update the modal's content.
+                  var modal = $(this)
+                  //modal.find('.modal-title').text(title)
+                  modal.find('.modal-body').text(content)	  
+
+                  // And if you wish to pass the podId to modal's 'Yes' button for further processing
+
+                  //modal.find('button.btn-primary').val(this)
+                  //console.log(button.btn-primary.val)
+                  
+                })
+            })
+            </script>
+
+        </div>
+    </body>
+</html>

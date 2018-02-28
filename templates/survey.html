@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Survey </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- Added style -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,bold' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+        
+    </head>
+    <body>
+        <h1 align="middle">Survey</h1>
+        <br>
+        <div style="width: 80%; margin:auto;">
+        <form action="/thankyou" method="Post" align="left">
+            1. Please indicate how much you liked <b> your podcast choice </b>.<br>
+            <table style="width:100%">
+              <br>
+              <tr>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="strongly-disliked" required> Strongly disliked</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="disliked" required> Disliked </td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="neutral" required> Neutral</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="liked" required> Liked</td>
+                  <td class="surv_cell"><input type="radio" name="choice-like-level" value="strongly-liked" required> Strongly liked</td>
+              </tr>
+            </table>
+            <br>
+
+            2. Please comment on why you liked or disliked <b> your podcast choice </b><br>
+            <br>
+            <textarea rows="5" cols="100" name="choice-comment" required></textarea>
+            <br>
+            <br>
+
+            3. Please indicate how much you liked <b> our recommendations</b><br>
+            <br>
+            <table style="width:100%">
+                <tr>
+                <td class="surv_cell" ><input type="radio" name="recommendation-like-level" value="strongly-disliked" required> Strongly disliked</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="disliked" required> Disliked</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="neutral" required> Neutral</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="liked" required> Liked</td>
+                <td class="surv_cell"><input type="radio" name="recommendation-like-level" value="strongly-liked" required> Strongly liked</td>
+                </tr>
+            </table>
+            <br>
+            <br>
+
+            4. Please comment on why you liked or disliked <b> our recommendations </b><br>
+            <br>
+            <textarea rows="5" cols="100" name="recommendation-comment" required></textarea>
+            <br>
+            <br>
+            <br>
+
+            <div align="center">
+            <input id="next" type="submit" class="page_btn" value="Submit" >
+          </div>
+        </form>
+        </div>
+
+        <div id="codeModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+              
+                  <!-- Modal content-->
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title">Confirmation Code</h4>
+                    </div>
+                    <div class="modal-body">
+                      <p class="modal_p"><b>Please copy and paste the code below into AMT</b></p>
+                      <p class="modalText code">{{ passcode }}</p>
+                    </div>
+                    <div class="modal-footer">
+                     <div align= "center">
+                      <a href="./thankyou"><button type="button" class="btn btn-primary modal_p mod-btn" id="continuebtn">I have copied the code</button></a>
+                    </div>
+                    </div>
+                  </div>
+              
+                </div>
+              </div>
+
+
+              <script>
+
+                    $( document ).ready(function() {
+                    /*jQuery('#next').on('click',function(){
+                      
+                      //$('#next').click(function() {
+                       
+                       var empty = $(this).parent().find("input:text").filter(function() {
+                                return this.value.trim() === "";
+                            });
+
+                            console.log(empty);
+
+                            if(empty.length) {
+                                //At least one input is empty
+                                alert("empty!");
+                            }
+                    });
+                  });*/
+                        $('#submit_survey').on('submit',function(e){
+                            e.preventDefault();
+                            $("#codeModal").modal('toggle');
+
+                        });
+
+                      
+                        
+                            //jQuery('form').submit();
+                            //jQuery('#myModal').modal('toggle');
+                            /*var empty = true;
+                            jQuery(':input').each(function(){
+                                if(jQuery(this).val().trim()==''){
+                                    console.log('Please fill the required fields');
+                                    console.log(jQuery(this).val());
+                                    empty = true;
+                                } else {
+                                  console.log(jQuery(this).val());
+                                  empty = false;
+                                }
+                            });
+                            if(!empty)
+                                jQuery('#codeModal').modal('toggle');
+                            else
+                                console.log('Fields not filled');
+                        });
+
+                        jQuery('#continuebtn').on('click',function(){
+                            jQuery('form').submit();*/
+                        //});
+                    });
+
+                  /* var _code = 'dereroopak'
+                       $(document).ready(function() {
+    
+                       $('#codeModal').on('show.bs.modal', function (event) { // id of the modal with event
+  
+                       var i = document.getElementById('modalText');
+                       i.innerHTML = _code; */
+                       
+                       /*var button = $(event.relatedTarget) // Button that triggered the modal
+                       var productid = button.data('productid') // Extract info from data-* attributes
+                       var productname = button.data('productname')
+           
+                       
+                       
+                       var content = 'Are you sure want to delete ' + productname + '?'
+                       
+                       // Update the modal's content.
+                       var modal = $(this)
+                       modal.find('.modal-title').text(title)
+                       modal.find('.modal-body').text(content)	  
+                       
+                       // And if you wish to pass the productid to modal's 'Yes' button for further processing
+                       modal.find('button.btn-danger').val(productid)*/
+                       //})
+                   //})
+           
+                   </script>
+            
+
+
+    </body>
+</html>

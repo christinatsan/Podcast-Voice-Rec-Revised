@@ -1,0 +1,117 @@
+body{
+    font-family: 'Lato', sans-serif;
+    font-family: Lato;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+.vis_tr:hover{
+	background-color: lightskyblue;
+	background: -webkit-radial-gradient(lightskyblue, white, lightskyblue); /* For Safari 5.1 to 6.0 */
+    background: -o-radial-gradient(lightskyblue, white, lightskyblue); /* For Opera 11.1 to 12.0 */
+    background: -moz-radial-gradient(lightskyblue, white, lightskyblue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( black,grey,  black); /* Standard syntax (must be last) */
+	color: white;
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.surv_cell:hover{
+	background-color: lightskyblue;
+	background: -webkit-linear-gradient(170deg, lightskyblue, white, lightskyblue); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(170deg, lightskyblue, white, lightskyblue); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(170deg, lightskyblue, white, lightskyblue); /* For Firefox 3.6 to 15 */
+    background: linear-gradient( 170deg, lightskyblue,white,  lightskyblue); /* Standard syntax (must be last) */
+	color: purple;
+}
+
+.page_btn{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.page_btn:hover{
+	background-color: darkgrey;
+	background: -webkit-linear-gradient(175deg, darkgrey, white, lightgrey); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(175deg, darkgrey, white, lightgrey); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(175deg, darkgrey, white, lightgrey); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(175deg, darkgrey,white,  lightgrey); /* Standard syntax (must be last) */
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+	/*transform: translate(0px, -0.8px) scale(1);*/
+}
+
+.mod-btn{
+	box-shadow: 0 8px 10px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.mod-btn:hover{
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.serial_cell, td{
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+td {
+    border: 0.3px dashed rgb(89, 19, 230);
+    padding-right: 50px;
+
+   }
+
+
+h1{
+	font-family: Lato;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: small-caps;
+	font-weight: 1000;
+	line-height: 26.4px;
+}
+
+h2{
+	font-family: Lato;
+	font-size: 20px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 800;
+	line-height: 26.4px;
+}
+
+h3 {
+	font-family: Lato;
+	font-size: 18px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15.4px;
+}
+p, .modal, .modal_p{
+	font-family: Lato;
+	font-size: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+blockquote {
+	font-family: Lato;
+	font-size: 21px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+pre {
+	font-family: Lato;
+	font-size: 13px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 18.5714px;
+}
+
+.input-field{
+	box-shadow: 0 10px 20px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.23);
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Playing Podcast </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- Added style -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,bold' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+        
+
+    </head>
+    <body>
+        <div style = "margin-top: 200px;" align = "center">
+        <h3>{{ title }}</h3>
+        <audio id = "audioplayer" controls>
+        <source src= {{ url_for('static', filename = audio_file) }} type="audio/mp3">
+        Your browser does not support audio files
+        </audio>
+        <div style = "margin-top: 50px;" align = "center">
+            <button id="nextButton" type="button" id="continuebtn" class="page_btn"  style="display:none"> Continue </button>
+        </div>
+
+        <button type="button" class="page_btn" onclick="window.location='/survey'"> Next </button>
+
+        <!-- disabled onclick="window.location='/_dispatch'" -->
+        
+        <script>
+            var player = document.getElementById("audioplayer");
+            var paused = false;
+            var btn = document.getElementById("continuebtn");
+
+            var time = 300 * 1000 + 5;
+            var timer;
+            var timeStamp1;
+            var timeStamp2;
+
+            document.getElementById("nextButton").disabled = true;
+
+            player.onplay = function(){
+                //alert("Play started");
+                timeStamp1 = new Date().getTime();
+                timer = setTimeout(function() { 
+                btn.style.display = 'block';
+                    }, time);
+                }
+            
+
+            player.onpause = function() {
+                // alert("The video has been paused");
+                timeStamp2 = new Date().getTime();
+                clearTimeout(timer);
+                time -= (timeStamp2 - timeStamp1);
+            };
+
+            player.ondownload = function(){
+                print("downloaded")
+            }
+
+            // automatic pause after pause_offset seconds
+            player.addEventListener("timeupdate", function(){
+                if (player.currentTime < {{ pause_offset }}) {
+                    paused = false;
+                } else if (player.currentTime < ({{ pause_offset }} + 1) && !paused) {
+                    paused = true;
+                    document.getElementById("Button").disabled = false;
+                    player.pause();
+                }
+            });
+
+            btn.addEventListener("click", function() {
+                window.location = "/survey"
+            })
+        </script>
+    </body>
+</html>

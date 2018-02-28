@@ -1,0 +1,41 @@
+# options
+{
+  "count":number,
+  "podcasts":[
+      {
+          "title":string,
+          "file-name":string
+      }
+  ]
+}
+
+# view_log
+{
+   "user-id": string,
+   "history":{
+      "view":[
+         {
+            "window":{
+               "top":number,
+               "bot":number,
+            },
+            "layout":{
+               "top":number,
+               "height":number
+            },
+            "time":number
+         }
+      ]
+   }
+}
+
+# survey_result:
+{
+    "user-id": string,
+    "podcast-id": number,
+    "is-voice": boolean,
+    "choice-like-level": enum string,
+    "choice-comment": string,
+    "recommendation-like-level": enum string,
+    "recommendation-comment": string
+}

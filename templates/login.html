@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> System Login </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- Added style -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,bold' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+ 
+    </head>
+    <body align="center" style="margin: 100px;">
+        <h2>Thank you for choosing to participate in our research. </h2>
+        <h3>You may enter your Worker ID and click button below to begin. </h3><br><br>
+        <form action="/" method="Post">
+            Worker ID <br><input type="text"  class="input-field" name="user-id" required><br>
+            <br>
+            <br>
+            <input type="submit" class="page_btn"  value="Begin">
+        </form>
+    </body>
+</html>

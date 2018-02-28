@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="refresh" content="10; url=/login" />
+        <title> Submitted </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+        <!-- Added style -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:400,700,bold' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/style.css') }}" />
+        
+    </head>
+    <body align="center" style="margin: 100px;">
+
+      <h2>You haved submitted successfully. Thank you.</h2>
+
+      <p>In case you missed this. This is the last chance to copy your code <span class = "code" ><b>{{passcode}}</b></span> </p>
+      <p> Logging out and redirect to home page in <span id="counter">10</span>  seconds </p>
+
+
+
+      <script type="text/javascript">
+        function countdown() {
+            var i = document.getElementById('counter');
+            if (parseInt(i.innerHTML)<=0) {
+                location.href = '/login';
+            }
+            i.innerHTML = parseInt(i.innerHTML)-1;
+        }
+        setInterval(function(){ countdown(); },1000);
+        </script>
+
+    </body>
+</html>

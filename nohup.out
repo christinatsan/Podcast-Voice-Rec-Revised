@@ -1,0 +1,12 @@
+[2018-02-20 21:14:07 +0000] [11209] [INFO] Starting gunicorn 19.7.1
+[2018-02-20 21:14:07 +0000] [11209] [INFO] Listening at: http://127.0.0.1:8000 (11209)
+[2018-02-20 21:14:07 +0000] [11209] [INFO] Using worker: sync
+[2018-02-20 21:14:07 +0000] [11212] [INFO] Booting worker with pid: 11212
+/static
+{
+    "RequestCharacters": "434",
+    "ContentType": "audio/mpeg"
+}
+[2018-02-20 21:15:05 +0000] [11209] [INFO] Handling signal: int
+[2018-02-20 21:15:05 +0000] [11212] [INFO] Worker exiting (pid: 11212)
+[2018-02-20 21:15:05 +0000] [11209] [INFO] Shutting down: Master
